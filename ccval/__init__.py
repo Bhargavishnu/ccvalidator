@@ -35,21 +35,21 @@ def luhn_check(cnum):
     return False
 
     
-    
-cnumber=str(input("Enter a credit card number"))
-if hasnumbers(cnumber):
-    if check_len(len(cnumber)):
-        if startwith(cnumber):
-            if luhn_check(cnumber):
-                print("Valid:A Valid Number")
+def main():    
+    cnumber=str(input("Enter a credit card number"))
+    if hasnumbers(cnumber):
+        if check_len(len(cnumber)):
+            if startwith(cnumber):
+                if luhn_check(cnumber):
+                    print("Valid:A Valid Number")
+                else:
+                    print("Invalid:Invalid Number")
             else:
-                print("Invalid:Invalid Number")
+                print("Invalid:Check starting number ")
         else:
-            print("Invalid:Check starting number ")
+            print("Invalid:Check Number Length")
     else:
-        print("Invalid:Check Number Length")
-else:
-    print("Invalid:Contains alphabets or special charecters")
+        print("Invalid:Contains alphabets or special charecters")
 
-print("THANK YOU")
+    print("THANK YOU")
     
