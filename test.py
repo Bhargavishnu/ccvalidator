@@ -8,7 +8,7 @@ class TestSum(unittest.TestCase):
         result=hasnumbers(data)
         self.assertEqual(result,True)
     def test_nothasnumber(self):
-        data="4563838383838388"
+        data="abcdefg"
         result=hasnumbers(data)
         self.assertEqual(result,False)
     def test_startwith4(self):
@@ -38,7 +38,7 @@ class TestSum(unittest.TestCase):
     def test_luhn_check(self):
         data="79927398713"
         result=ccval.luhn_check(data)
-        self.assertEqual(result,False)
+        self.assertEqual(result,True)
 
         
 if __name__ == '__main__':
