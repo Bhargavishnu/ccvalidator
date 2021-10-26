@@ -49,7 +49,7 @@ def main():
         else:
             print("Invalid:Check Number Length")
     else:
-        print("Invalid:Contains alphabets or special charecters")
+        print("Invalid:Contains alphabets or special characters")
 
     print("THANK YOU")
     
