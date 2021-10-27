@@ -1,6 +1,8 @@
 import unittest
-from ccval import hasnumbers
+
 import ccval
+from ccval import hasnumbers
+
 
 class TestSum(unittest.TestCase):
     def test_hasnumber(self):
