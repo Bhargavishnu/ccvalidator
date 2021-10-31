@@ -5,16 +5,6 @@ from ccval import hasnumbers
 
 
 class TestSum(unittest.TestCase):
-    def test_hasnumber(self):
-        data = "4563838383838388"
-        result = hasnumbers(data)
-        self.assertEqual(result, True)
-
-    def test_nothasnumber(self):
-        data = "abcdefg"
-        result = hasnumbers(data)
-        self.assertEqual(result, False)
-
     def test_startwith4(self):
         data = "45"
         result = ccval.startwith(data)
