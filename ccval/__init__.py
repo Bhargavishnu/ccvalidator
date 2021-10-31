@@ -7,7 +7,7 @@ def luhn_check(credit_card_number):
     credit_card_number_length = len(credit_card_number)
     for i in range(credit_card_number_length):
         digit = int(credit_card_number[i])
-        if i % 2 == 0:
+        if i % 2 == 1:
             digit *= 2
             if digit > 9:
                 digit %= 10
