@@ -34,4 +34,3 @@ def main():
 
     print("Given number is a valid credit card number")
     return True
-
