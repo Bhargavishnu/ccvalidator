@@ -1,5 +1,5 @@
 def startwith(credit_card_number):
-    return credit_card_number.startswith("4", "5", "6", "37", "34", "35")
+    return credit_card_number.startswith(("4", "5", "6", "37", "34", "35"))
 
 
 def luhn_check(credit_card_number):
