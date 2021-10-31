@@ -22,16 +22,16 @@ def main():
     if not credit_card_number.isdigit():
         print(error_message + "Hint: Contains alphabets or special characters")
         return False
-    if not (13<= len(credit_card_number) <= 16):
-        print(error_message +"Hint:Check Number Length")
+    if not (13 <= len(credit_card_number) <= 16):
+        print(error_message + "Hint:Check Number Length")
         return False
     if not startwith(credit_card_number):
-        print(error_message +"Hint:Check starting number ")
+        print(error_message + "Hint:Check starting number")
         return False
     if not luhn_check(credit_card_number):
         print(error_message)
         return False
-    
+
     print("Given number is a valid credit card number")
     return True
 
