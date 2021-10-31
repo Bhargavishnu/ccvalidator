@@ -1,58 +1,37 @@
-def hasnumbers(cnum):
-    return cnum.isdigit()
+def startwith(credit_card_number):
+    return credit_card_number.startswith(("4", "5", "6", "37", "34", "35"))
 
 
-def check_len(length):
-    if length >= 13 and length <= 16:
-        return True
-    return False
+def luhn_check(credit_card_number):
+    validation_sum = 0
+    credit_card_number_length = len(credit_card_number)
+    for i in range(credit_card_number_length):
+        digit = int(credit_card_number[i])
+        if i % 2 == 1:
+            digit *= 2
+            if digit > 9:
+                digit %= 10
+                digit += 1
+        validation_sum += digit
 
-
-def startwith(cnum):
-    f = int(cnum[0])
-    if f == 4 or f == 5 or f == 6:
-        return True
-    elif f == 3:
-        s = int(cnum[1])
-        if s == 7 or s == 4 or s == 5:
-            return True
-        else:
-            return False
-    return False
-
-
-def luhn_check(cnum):
-    halflen = len(cnum) - 2
-    tsum = 0
-    for i in range(halflen, -1, -2):
-        n = int(cnum[i])
-        n = n * 2
-        if n > 9:
-            n = n % 10
-            n = n + 1
-        cnum = cnum[:i] + str(n) + cnum[i + 1 :]
-        tsum += n
-    for i in range(len(cnum) - 1, -1, -2):
-        tsum += int(cnum[i])
-    if tsum % 10 == 0:
-        return True
-    return False
+    return validation_sum % 10 == 0
 
 
 def main():
-    cnumber = str(input("Enter a credit card number"))
-    if hasnumbers(cnumber):
-        if check_len(len(cnumber)):
-            if startwith(cnumber):
-                if luhn_check(cnumber):
-                    print("Valid:A Valid Number")
-                else:
-                    print("Invalid:Invalid Number")
-            else:
-                print("Invalid:Check starting number ")
-        else:
-            print("Invalid:Check Number Length")
-    else:
-        print("Invalid:Contains alphabets or special characters")
+    credit_card_number = str(input("Enter a credit card number"))
+    error_message = "Invalid credit card number given "
+    if not credit_card_number.isdigit():
+        print(error_message + "Hint: Contains alphabets or special characters")
+        return False
+    if not (13 <= len(credit_card_number) <= 16):
+        print(error_message + "Hint:Check Number Length")
+        return False
+    if not startwith(credit_card_number):
+        print(error_message + "Hint:Check starting number")
+        return False
+    if not luhn_check(credit_card_number):
+        print(error_message)
+        return False
 
-    print("THANK YOU")
+    print("Given number is a valid credit card number")
+    return True
